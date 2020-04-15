@@ -58,14 +58,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="entry-content" itemprop="text">
 			<?php
-            the_content();
-
+			the_content();
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'generatepress' ),
 				'after'  => '</div>',
 			) );
-
 			?>
 		</div><!-- .entry-content -->
 

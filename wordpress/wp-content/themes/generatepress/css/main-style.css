@@ -1,0 +1,193 @@
+body {
+    overflow: hidden;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #017572;
+}
+
+#destroy-session {
+    position: absolute;
+    right: 0;
+}
+
+.categorie__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 220px;
+    margin-top: -8px;
+}
+
+.categorie__container {
+    width: 180px;
+    margin: 0 40px 0;
+}
+
+.categorie__container .container {
+    position: relative;
+}
+
+.categorie__container .container input {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-42%);
+    width: 20px;
+    left: -22px;
+}
+
+.setup__wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.setup__container {
+    margin: 0 auto;
+    width: 40%;
+    padding: 0 5%;
+}
+
+
+.setup__setting-wrapper, .setup__setting-container {
+    display: flex;
+}
+
+#categorie-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.categorie__filter {
+    margin-right: 50px;
+}
+
+.categorie__container {
+    margin: 0;
+}
+
+#setup-btn {
+    display: block;
+    margin-left: 5%;
+}
+
+.content__container-article {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.activate-first-challenge + .content__container-article {
+    height: 100%;
+}
+
+.content__container-article.active {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 40px;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+}
+
+#continue {
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.current-id {
+    display: none;
+}
+
+#datasheet {
+    display: none;
+}
+
+.truth-text, .dare-text {
+    display: none;
+}
+
+#player-number, .player-names {
+    margin-bottom: 10px;
+}
+
+span.categorie {
+    display: none;
+}
+
+.content__container-article h1 {
+    font-size: 76px;
+    line-height: 95px;
+    font-weight: bold;
+    color: #111;
+}
+
+@media (max-width: 800px) {
+    .content__container-article h1 {
+        font-size: 62px;
+        line-height: 76px;
+    }
+}
+
+/*@media (max-width: 500px) {*/
+/*    h1 {*/
+/*        font-size: 34px;*/
+/*        line-height: 43px;*/
+/*    }*/
+/*}*/
+
+.truth, .dare {
+    border-radius: 10px;
+}
+
+.content__container-article ul {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style: square;
+    width: 350px;
+}
+
+@media (max-width: 800px) {
+    .content__container-article ul {
+        /*margin-left: 50px;*/
+        width: 80%;
+    }
+}
+
+.content__container-article li {
+    text-align: left;
+    /*width: 250px;*/
+}
+
+/*@media (max-width: 800px) {*/
+/*    .content__container-article li {*/
+/*        !*margin-left: 50px;*!*/
+/*        width: 80%;*/
+/*    }*/
+/*}*/
+
+.content__container-article p, .content__container-article li {
+    font-size: 36px;
+    line-height: 45px;
+    font-weight: bold;
+    color: #111;
+}
+
+@media (max-width: 800px) {
+    .content__container-article p, .content__container-article li {
+        font-size: 22px;
+        line-height: 36px;
+    }
+}
+
+/*@media (max-width: 500px) {*/
+/*    p {*/
+/*        font-size: 16px;*/
+/*        line-height: 18px;*/
+/*    }*/
+/*}*/

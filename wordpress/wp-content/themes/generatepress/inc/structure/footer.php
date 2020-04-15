@@ -31,7 +31,16 @@ if ( ! function_exists( 'generate_construct_footer' ) ) {
 				do_action( 'generate_before_copyright' );
 				?>
 				<div class="copyright-bar">
-                    © 2020 Party Trink Spiel • Powered by Dream Web Visions
+					<?php
+					/**
+					 * generate_credits hook.
+					 *
+					 * @since 0.1
+					 *
+					 * @hooked generate_add_footer_info - 10
+					 */
+					do_action( 'generate_credits' );
+					?>
 				</div>
 			</div>
 		</footer><!-- .site-info -->

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Set our theme version.
-define( 'GENERATE_VERSION', '2.4.1' );
+define( 'GENERATE_VERSION', '2.4.2' );
 
 if ( ! function_exists( 'generate_setup' ) ) {
 	add_action( 'after_setup_theme', 'generate_setup' );
@@ -96,3 +96,12 @@ require $theme_dir . '/inc/structure/header.php';
 require $theme_dir . '/inc/structure/navigation.php';
 require $theme_dir . '/inc/structure/post-meta.php';
 require $theme_dir . '/inc/structure/sidebars.php';
+
+function custom_scripts() {
+    //wp_register_script('main-script', get_template_directory_uri() . '/js/main-script.js', array('jquery'), null, true);
+    //wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main-script.js', array('jquery'), null, true);
+    wp_enqueue_script( 'script', get_template_directory_uri() . '/js/main-script.js', array ( 'jquery' ), 1.1, true);
+    wp_enqueue_style( 'main-style', get_template_directory_uri() . '/css/main-style.css',false,'1.1','all');
+
+}
+add_action('wp_enqueue_scripts', 'custom_scripts');

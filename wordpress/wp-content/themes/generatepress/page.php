@@ -19,138 +19,54 @@ get_header(); ?>
 	<div id="primary" <?php generate_do_element_classes( 'content' ); ?>>
 		<main id="main" <?php generate_do_element_classes( 'main' ); ?>>
 			<?php
-            //player names
-            $_COOKIE['players'] = isset($_POST['players']) ? $_POST['players'] : array();
+			/**
+			 * generate_before_main_content hook.
+			 *
+			 * @since 0.1
+			 */
+			do_action( 'generate_before_main_content' );
 
-            //number of players
-            $_COOKIE['numberOfPlayers'] = isset($_POST['numberOfPlayers']) ? $_POST['numberOfPlayers'] : 0;
+			while ( have_posts() ) : the_post();
 
-            //current challenge ID
-            $_COOKIE['currentChallengeID'] = isset($_POST['currentChallengeID']) ? $_POST['currentChallengeID'] : '';
+				get_template_part( 'content', 'page' );
 
-            //current challenge
-            $_COOKIE['currentChallenge'] = isset($_POST['currentChallenge']) ? $_POST['currentChallenge'] : 0;
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || '0' != get_comments_number() ) :
+					/**
+					 * generate_before_comments_container hook.
+					 *
+					 * @since 2.1
+					 */
+					do_action( 'generate_before_comments_container' );
+					?>
 
-            //max challenges
-            $_COOKIE['maxChallenges'] = isset($_POST['maxChallenges']) ? $_POST['maxChallenges'] : 50;
+					<div class="comments-area">
+						<?php comments_template(); ?>
+					</div>
 
-            //categories
-            $_COOKIE['categories'] = isset($_POST['categories']) ? $_POST['categories'] : array('crazy' => true, 'mime' => false, 'perverse' => true, 'explain' => true, 'draw' => false, 'common' => true);
+					<?php
+				endif;
 
-            //tags
-            $_COOKIE['tags'] = isset($_POST['tags']) ? $_POST['tags'] : array('virus' => true, 'paar' => false, '4player' => false);
+			endwhile;
 
-            echo '<pre>';
-                var_dump( $_COOKIE['players'] );
-                echo $_COOKIE['numberOfPlayers'];
-                echo $_COOKIE['currentChallengeID'];
-                echo $_COOKIE['currentChallenge'];
-                echo $_COOKIE['maxChallenges'];
-                var_dump( $_COOKIE['categories'] );
-                var_dump( $_COOKIE['tags'] );
-            echo '</pre>';
-            print_r($_COOKIE);
-
-
-            $current_url = home_url($_SERVER['REQUEST_URI']);
-            echo $current_url;
-            ?>
-            <!-- first step -->
-            <form class="form" method="POST" action="<?php $current_url ?>">
-                <h3 class="subline">Choose Number of Players</h3>
-                <select name="numberOfPlayers">
-                    <option value="0">nothing choosen</option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5"></option>
-                    <option value="6"></option>
-                    <option value="7"></option>
-                    <option value="8"></option>
-                    <option value="9"></option>
-                    <option value="10"></option>
-                </select>
-                <?php
-                for($i = 0; $i < 4; $i++) { //$_SESSION['numberOfPlayers'];
-                    echo '<p><span>Player ' .  ( $i + 1 ) . ' </span><input type="text" name="players" value="player' . $i . '" size="4"></p>';
-                }
-                ?>
-                <h3 class="subline">Additional Content</h3>
-                <label class="container">Crazy
-                    <input name="crazy" value="crazy" type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Hot
-                    <input name="hot" value="hot"  type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Explain
-                    <input name="explain" value="explain" type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Mime
-                    <input name="mime" value="mime" type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Draw
-                    <input name="draw" value="draw" type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-
-                <button class="submit" type="submit" name="first">Continue</button
-            </form>
-
-            <?php
-            if(isset($_POST['submit'])){
-                if(isset($_POST['numberOfPlayers'])){
-                    $_COOKIE['numberOfPlayers'] = $_POST['numberOfPlayers'];
-                }
-                if(isset($_POST['players'])){
-                    $_COOKIE['players'] = $_POST['players'];
-                }
-
-                if(isset($_POST['categories'])) {
-                    $_COOKIE['categories'] = $_POST['categories'];
-                }
-
-                if($_COOKIE['numberOfPlayers'] > 3) {
-                    $_COOKIE['tags'] = $_COOKIE['4player'][true];
-                }
-                if($_COOKIE['numberOfPlayers'] % 2 === 0) {
-                    $_COOKIE['tags'] = $_COOKIE['paar'][true];
-                }
-
-            }
-            ?>
-
-            <?php
-            foreach($_POST as $key => $value)
-                $_COOKIE[$key] = $value;
-
-
-            $args  = array(
-                'posts_per_page'  => 100,
-                'order'           => 'rand',
-                'post_type'       => array('crazy' , 'mime', 'perverse', 'explain', 'draw', 'common'),
-                'post_status'     => 'publish',
-                'suppress_filters' => true,
-            );
-
-            $posts = get_posts($args);
-            foreach ($posts as $post) :
-                //get_the_title();
-                the_post();
-                get_template_part( 'content', 'page' );
-            endforeach; ?>
-            <?php
-
-            echo '<pre>';
-            print_r($_COOKIE);
-            //var_dump(get_children());
-            echo '</pre>';
-            do_action( 'generate_after_main_content' );
-            ?>
+			/**
+			 * generate_after_main_content hook.
+			 *
+			 * @since 0.1
+			 */
+			do_action( 'generate_after_main_content' );
+			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
+	<?php
+	/**
+	 * generate_after_primary_content_area hook.
+	 *
+	 * @since 2.0
+	 */
+	do_action( 'generate_after_primary_content_area' );
+
+	generate_construct_sidebars();
 
 get_footer();

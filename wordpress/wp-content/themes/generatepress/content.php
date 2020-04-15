@@ -58,7 +58,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<div class="entry-summary" itemprop="text">
 				<?php the_excerpt(); ?>
-
 			</div><!-- .entry-summary -->
 
 		<?php else : ?>
