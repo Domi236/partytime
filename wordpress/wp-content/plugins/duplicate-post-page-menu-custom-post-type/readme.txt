@@ -4,7 +4,7 @@ Tags: clone, duplicate, duplicate post, duplicate page, duplicate menu, duplicat
 Donate link: http://www.inqsys.com/donate/
 Requires at least: 3.5
 Tested up to: 5.3
-Stable tag: 1.4.4
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ If you find this useful, <a href='https://www.inqsys.com/donate/' target='_new'>
 </ol>
 
 == Changelog ==
+<ul><li>1.5.0</li><ul>
+<li>Optimize: JS & PHP.</li>
+<li>Added: `BUY PRO` link in plugin's page.</li>
+</ul></ul>
 <ul><li>1.4.3</li><ul>
 <li>Fixed: Minor issues.</li>
 </ul></ul>

@@ -8,7 +8,7 @@
 
 *	Author: Inqsys Technology
 
-*	Version: 1.4.4
+*	Version: 1.5.0
 
 *	Text Domain: duplicate-ppmc
 
@@ -76,10 +76,12 @@ if ( ! class_exists( 'Duplicate_PPMC_Init' ) ) {
 			
 			add_action( 'admin_notices', array( $this, 'duplicate_ppmc_admin_notice'),100 );
 
-			add_action( 'admin_notices', array( $this, 'duplicate_ppmc_discount_notice'),100 );
+			//add_action( 'admin_notices', array( $this, 'duplicate_ppmc_discount_notice'),100 );
 
-			/* Add L18n text domain */
+			/*	Extra button on plugin page	*/
+			add_filter( 'plugin_action_links_duplicate-post-page-menu-custom-post-type/duplicate-post-page-menu-cpt.php', array( $this, 'ppmc_plugin_row_meta') );
 
+			/* Add L18n text domain */			
 			add_action( 'plugins_loaded', array( $this, 'dppmc_load_plugin_textdomain' ) );
 
 		}	/* End of __construct() */
@@ -88,6 +90,15 @@ if ( ! class_exists( 'Duplicate_PPMC_Init' ) ) {
 			echo 'Ajax function';
 			echo $_REQUEST['post'] . ' id post coppied for ' . $_REQUEST['copies'] . ' times';
 			die();
+		}
+ 
+		function ppmc_plugin_row_meta( $links ) {    
+
+				$row_meta = array(
+				  'buy_pro'    => '<a href="' . esc_url( 'https://www.inqsys.com/duplicate-post-page-menu-custom-post-type-pro-wordpress-plugin/' ) . '" style="font-weight:700;color:red;" target="_blank" aria-label="' . esc_attr__( 'Plugin Pro', 'dppmc_load_plugin_textdomain' ) . '" style="color:green;">' . esc_html__( 'BUY PRO', 'dppmc_load_plugin_textdomain' ) . '</a>'
+				);
+				return array_merge( $row_meta , $links);
+
 		}
 		
 		function ppmc_remove_rating(){
@@ -121,6 +132,7 @@ if ( ! class_exists( 'Duplicate_PPMC_Init' ) ) {
 				update_option( 'ppmc_support_us_now', "false" );
 				update_option( 'ppmc_next_period_ratings', date("Y-m-d h:i:s", strtotime("+6 months")) );
 			}
+
 			if( $support != "true" && $diff_days >= 2 ) {
 
 				$html = "<div class='notice notice-info important' id='message' style='padding: 10px;position:relative;line-height:30px;'>";
