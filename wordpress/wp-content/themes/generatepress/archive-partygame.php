@@ -160,7 +160,14 @@ get_header(); ?>
                             ?>
                         </div>
                         <div class="setup__container">
-                            <h3 class="subline">Einstellungen</h3>
+                            <h3 class="subline">
+                                <button id="more-info-btn" class="game-descriptions-btn article-icons" type="button" value="game-descriptions-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M0 0h24v24H0z" fill="none"/><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                    </svg>
+                                </button>
+                                Einstellungen
+                            </h3>
                             <div class="setup__setting-wrapper">
                                 <div class="setup__setting-container">
                                     <div id="categorie-filter">
@@ -190,7 +197,14 @@ get_header(); ?>
                             </div>
                         </div>
                         <div id="setup__container--rules-out-of-game" class="setup__container">
-                            <h3 class="subline">Grundregeln</h3>
+                            <h3 class="subline">
+                                <button class="rule-btn article-icons" type="button" value="rule-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g/><g>
+                                                <path d="M21,5c-1.11-0.35-2.33-0.5-3.5-0.5c-1.95,0-4.05,0.4-5.5,1.5c-1.45-1.1-3.55-1.5-5.5-1.5S2.45,4.9,1,6v14.65 c0,0.25,0.25,0.5,0.5,0.5c0.1,0,0.15-0.05,0.25-0.05C3.1,20.45,5.05,20,6.5,20c1.95,0,4.05,0.4,5.5,1.5c1.35-0.85,3.8-1.5,5.5-1.5 c1.65,0,3.35,0.3,4.75,1.05c0.1,0.05,0.15,0.05,0.25,0.05c0.25,0,0.5-0.25,0.5-0.5V6C22.4,5.55,21.75,5.25,21,5z M21,18.5 c-1.1-0.35-2.3-0.5-3.5-0.5c-1.7,0-4.15,0.65-5.5,1.5V8c1.35-0.85,3.8-1.5,5.5-1.5c1.2,0,2.4,0.15,3.5,0.5V18.5z"/><g><path d="M17.5,10.5c0.88,0,1.73,0.09,2.5,0.26V9.24C19.21,9.09,18.36,9,17.5,9c-1.7,0-3.24,0.29-4.5,0.83v1.66 C14.13,10.85,15.7,10.5,17.5,10.5z"/><path d="M13,12.49v1.66c1.13-0.64,2.7-0.99,4.5-0.99c0.88,0,1.73,0.09,2.5,0.26V11.9c-0.79-0.15-1.64-0.24-2.5-0.24 C15.8,11.66,14.26,11.96,13,12.49z"/><path d="M17.5,14.33c-1.7,0-3.24,0.29-4.5,0.83v1.66c1.13-0.64,2.7-0.99,4.5-0.99c0.88,0,1.73,0.09,2.5,0.26v-1.52 C19.21,14.41,18.36,14.33,17.5,14.33z"/></g></g></g>
+                                    </svg>
+                                </button>
+                                Grundregeln
+                            </h3>
                             <div class="setup__setting-wrapper">
                                 <div class="setup__setting-container">
                                     <p class="punishments__intro-text">Wenn sich ein Spieler weigert eine Aufgabe zu erfüllen oder eine Frage zu beantworten, tritt per Zufallsprinzip einer der folgenden Strafen in Kraft:</p>
@@ -266,14 +280,14 @@ get_header(); ?>
 			        $just_drinking++;
 		        }
 	        endforeach;
-
-	        echo $crazy . '$crazy<br>';
-	        echo $perverse . '$perverse<br>';
-	        echo $activity . '$activity<br>';
-	        echo $storytime . '$storytime<br>';
-	        echo $i_never_have . '$i_never_have<br>';
-	        echo $truth_or_dare . '$truth_or_dare<br>';
-	        echo $just_drinking . '$just_drinking<br>';
+//
+//	        echo $crazy . '$crazy<br>';
+//	        echo $perverse . '$perverse<br>';
+//	        echo $activity . '$activity<br>';
+//	        echo $storytime . '$storytime<br>';
+//	        echo $i_never_have . '$i_never_have<br>';
+//	        echo $truth_or_dare . '$truth_or_dare<br>';
+//	        echo $just_drinking . '$just_drinking<br>';
 
             $postNumber = [];
 
@@ -397,6 +411,7 @@ get_header(); ?>
                 echo '<span class="categorie">' . $post->post_type . '</span>';
                 the_title( '<h1 class="headline__challenges">', '</h1>' );
                 the_content();
+	            echo '<div class="end-rule"><p class="end-rule--text"></p><button class="end-rule-btn">OK</button></div>';
                 echo '</div>';
             endforeach;
             echo '<button id="continue" class="btn btn-lg btn-primary btn-block" type="button" name="continue">Continue</button>';
@@ -495,6 +510,78 @@ get_header(); ?>
         //var_dump(get_children());
 //        echo '</pre>';
         ?>
+        <div id="display-info__container">
+            <h3 class="subline">SETUP INFOS</h3>
+            <div id="display-infos">
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">ALL (NO LIMIT)</p>
+                    <p class="display-infos__text">Setzt ALK und PERVERS auf maximales LVL und wählt alle Kategorien aus.</p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">ALK-LVL</p>
+                    <p class="display-infos__text">
+                        Je nachdem welches LVL ausgewählt wird:<br>
+                        - ist mehr oder weniger Alkohol im Spiel.<br>
+                        - wird Content hinzugefügt oder weggelassen.<br>
+                        - ändern sich die Strafen.<br>
+                        Hast du heut noch was vor oder gehst du sowieso davon aus
+                        das dieses Spiel das letzte sein wird was du heute noch mitbekommst?
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">PERVERSHEITS-LVL</p>
+                    <p class="display-infos__text">
+                        Je nachdem welches LVL ausgewählt wird:<br>
+                        - kann es Perverser und/oder vlt sogar freizügiger zugehen oder auch nicht.<br>
+                        - wird Content hinzugefügt oder weggelassen.<br>
+                        - ändern sich die Strafen.<br>
+                        Wie weit bist du bereit zu gehen?
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">CRAZY</p>
+                    <p class="display-infos__text">
+                        Verrückt, Abartig, einfach nicht Normal.
+                        Dinge wo du dir manchmal einfach nur denkst. WTF!?.
+                        Was nicht heißt das es nicht auch wahnsinnig unterhaltsam werden kann.
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">ACTIVITY</p>
+                    <p class="display-infos__text">
+                        Es wird immer ein Spieler angesprochen. Dieser bekommt 3 Begriffe zur Verfügung und die Aufgabenstellung. Kein anderer darf die Begriffe sehen.<br>
+                        ERKLÄREN: Erkläre einen der Begriffe, die anderen Spieler müssen erratten was dieser versucht zu erklären.<br>
+                        PANTOMIME: Wähle einen der Begriffe, stelle pantomimisch den gewählten Begriff dar. Die anderen Spieler müssen erratten was dieser versucht zu darzustellen. Eine Pantomime redet nicht.<br>
+                        ZEICHNEN: Zeichne einen der Begriffe, die anderen Spieler müssen erratten was dieser zeichnet. Der Zeichner darf nicht reden.
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">STORYTIME</p>
+                    <p class="display-infos__text">
+                        Gespannt darauf mehr von euren Mitspielern zu erfahren?<br>
+                        Dann ist STORYTIME genau das richtige für euch.
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">ICH HAB NOCH NIE...</p>
+                    <p class="display-infos__text">
+                        Es werden private oder intime Fragen gestellt die im Normalfall mit "Ich habe noch nie..." beginnen.
+                        Es gibt 2 Möglichkeiten mit dieser Kategorie zu spielen.
+                        MIT ALK: Wenn so eine Frage kommt und du es schon mal getan hast, dann musst du trinken.
+                        OHNE ALK: Jeder Spieler muss diese Fragen mit "einer Story" oder einfach mit einem "Nein" beantworten.
+                    </p>
+                </div>
+                <div class="display-infos__container">
+                    <p class="display-infos__headline">TRUTH OR DARE</p>
+                    <p class="display-infos__text">
+                        TRUTH OR DARE ist die beste Möglichkeit unangenehme oder gar peinliche Momente live mitzuerleben.
+                        Ein Spieler wird immer nach WAHRHEIT oder PFLICHT gefragt.
+                        Der gefragte Spieler wählt eine Option und beantwortet die Frage oder führt die Handlung aus.
+                    </p>
+                </div>
+            </div>
+            <button id="close-infos" type="button">OK</button>
+        </div>
     </main>
 </div>
 
@@ -677,26 +764,45 @@ get_header(); ?>
     }
 
     jQuery(document).ready(function($) {
+      // let clone = $("div.content__container-article.active").clone();
+
+
+      // $("div.content__container-article.active").clone().appendTo('#main');
+
+      // let clone = ${'div.content__container-article.active'}.clone();
+      // console.log(clone);
       const categories = document.getElementsByClassName('categorie__filter');
       const categorieTags = document.getElementsByClassName( 'categorie-tags' );
       let setupContainerRules = document.getElementById('setup__container--rules');
       let setupContainerRulesOutofGame = document.getElementById('setup__container--rules-out-of-game');
       const closeRulesInGame = document.getElementById('close-rules');
+      const closeInfosInGame = document.getElementById('close-infos');
+      // console.log(closeInfosInGame);
 
       if(document.getElementById('datasheet__punishments')) {
         var datasheetPunishments = document.getElementById('datasheet__punishments').textContent;
       }
       let displayPunishmentContainer = document.getElementById('display-punishment__container');
+      let displayInfoContainer = document.getElementById('display-info__container');
       let displayPunishment = document.getElementById('display-punishment');
 
-
       let showRules = false;
+      let showInfos = false;
+
+      const acc = document.getElementsByClassName( 'display-infos__container' );
+      slideDownAccordion(acc);
+
       if(document.getElementById('rule-btn') !== null) {
         if(setupContainerRules == null) {
           setupContainerRules = setupContainerRulesOutofGame;
         }
         document.getElementById('rule-btn').addEventListener('click', () => {
-          displayRules(showRules, setupContainerRules, closeRulesInGame)
+          displayRules(showRules, setupContainerRules, displayPunishmentContainer, closeRulesInGame, showInfos, displayInfoContainer)
+        });
+      }
+      if(document.getElementById('more-info-btn') !== null) {
+        document.getElementById('more-info-btn').addEventListener('click', () => {
+          showGameDescriptions(setupContainerRules, showRules, displayPunishmentContainer, showInfos, displayInfoContainer, closeInfosInGame)
         });
       }
 
@@ -717,13 +823,13 @@ get_header(); ?>
             $('#masthead').css('display', 'none');
             $('#resetBtn').css('display', 'none');
             $('.setup-icon__container').css('display', 'none');
-
-          setArticleIconEvents(articleIcons, showRules, setupContainerRules, closeRulesInGame, datasheetPunishments, displayPunishmentContainer, displayPunishment);
+          // console.log(closeInfosInGame);
+          setArticleIconEvents(articleIcons, showRules, setupContainerRules, closeRulesInGame, datasheetPunishments, displayPunishmentContainer, displayPunishment, showInfos, displayInfoContainer, closeInfosInGame);
         }
 
         /**change perversions-limit categories*/
         if(oldEnoughCheck !== null) {
-          oldEnoughCheck.addEventListener('change', (ev) => {
+           oldEnoughCheck.addEventListener('change', (ev) => {
 
             let limit = ev.target.value;
             checkHOTorNOT(limit);
@@ -882,7 +988,7 @@ get_header(); ?>
         let randomPlayer = '';
         let randomPlayerNUmber = Math.floor(Math.random() * datasheetNumberOfPlayers);
         let players = sessionStorage.players;
-        console.log(sessionStorage.players)
+        // console.log(sessionStorage.players)
         players.forEach((player, index, players) => {
             if(index === randomPlayerNUmber) {
                 newPlayers = players.filter(currentPlayers => currentPlayers !== player);
@@ -906,29 +1012,68 @@ get_header(); ?>
     }
 
     /** change random player*/
-    function changeRandomPlayer(text, newString) {
+    function changeRandomPlayer(text, texte, newString) {
         let newPlayers = '';
         let randomPlayer = '';
+        let newVirus ="";
         let players = sessionStorage.players.toString().split(',');
         players.pop();
         let randomPlayerNUmber = Math.floor(Math.random() * players.length);
 
         players.forEach((player, index, players) => {
             if(index === randomPlayerNUmber) {
-                newPlayers = players.filter(currentPlayers => currentPlayers !== player);
-                randomPlayer = players.filter(newPlayer => newPlayer === player);
-                sessionStorage.players = newPlayers;
+                  newPlayers = players.filter(currentPlayers => currentPlayers !== player);
+                  randomPlayer = players.filter(newPlayer => newPlayer === player);
+                  sessionStorage.players = newPlayers;
+
+              /**change lastPlayer VIRUS*/
+              for(let y = 0; y < texte.length; y++) {
+                if(texte[y].textContent.includes('#LastPlayer#')){
+                  sessionStorage.endRuleTimerOn = true;
+
+                  newVirus = texte[y].textContent.replace('#LastPlayer#', randomPlayer);
+                  texte[y].innerHTML = newVirus;
+                  sessionStorage.playersVirusContent = newVirus;
+
+                  texte[y].style.display = 'none';
+                }
+              }
             }
         });
+        if(randomPlayer == '') {
+            randomPlayer = sessionStorage.players;
+
+
+            /**change lastPlayer VIRUS*/
+            for(let y = 0; y < texte.length; y++) {
+                if(texte[y].textContent.includes('#LastPlayer#')){
+                  sessionStorage.endRuleTimerOn = true;
+
+                  newVirus = texte[y].textContent.replace('#LastPlayer#', randomPlayer);
+                  texte[y].innerHTML = newVirus;
+                  sessionStorage.playersVirusContent = newVirus;
+
+                  texte[y].style.display = 'none';
+                }
+            }
+        }
+
         newString = text.textContent.replace('#Spieler#', randomPlayer); ///#Spieler#/g
         text.innerHTML = newString;
     }
 
+
     /** change Background and player*/
     function changeBackgroundAndPlayer() {
+      // console.log(contentContainerArticle.length);
         for(let i = 0; i < contentContainerArticle.length; i++) {
+
             if(contentContainerArticle[i].classList.contains('active')) {
-                let truth = contentContainerArticle[i].getElementsByClassName('truth');
+                sessionStorage.playersVirus = '';
+                sessionStorage.endRuleTimerOn = false;
+                sessionStorage.playersVirusContent = '';
+                let endRuleCheck = false;
+              let truth = contentContainerArticle[i].getElementsByClassName('truth');
                 for(let y = 0; y < truth.length; y++) {
                   truth[y].addEventListener('click', () => {
                     contentContainerArticle[i].children[6].style.display = 'none';
@@ -944,10 +1089,6 @@ get_header(); ?>
                   })
                 }
 
-                if(contentContainerArticle[i].children[2].textContent.includes('VIRUS')) {
-                  console.log('virus')
-                }
-                console.log(contentContainerArticle[i].children[3])
                 let newHeadline = contentContainerArticle[i].children[3].textContent.replace(new RegExp("[0-9]", "g"), "").replace('#', '');
                 contentContainerArticle[i].children[3].innerHTML = newHeadline;
 
@@ -955,29 +1096,71 @@ get_header(); ?>
                   contentContainerArticle[i].children[3].style.marginTop = "50px";
                 }
 
-                let texte = contentContainerArticle[i].getElementsByTagName('p');
+                var texte = contentContainerArticle[i].getElementsByTagName('p');
                 for(let y = 0; y < texte.length; y++) {
-                    let text = texte[y];
-                    let newString = '';
+                  let text = texte[y];
+                  let newString = '';
 
-                    if(text.textContent.includes('#Activity#')) {
-                        let newText = text.textContent.replace('#Activity#', getRandomActivity());
-                        text.innerHTML = newText;
+                  if ( text.textContent.includes( '#Activity#' ) ) {
+                    let newText = text.textContent.replace( '#Activity#', getRandomActivity() );
+                    text.innerHTML = newText;
+                    let accOpen = false;
+                    let activityDropdowns = contentContainerArticle[i].getElementsByTagName( 'p' );
+                    for ( let a = 0; a < activityDropdowns.length; a++ ) {
+                      activityDropdowns[a].style.border = '2px solid #666';
+                      activityDropdowns[a].style.padding = '10px';
+                      activityDropdowns[a].style.cursor = 'pointer';
+                      activityDropdowns[a].nextElementSibling.style.display = 'none';
+                      activityDropdowns[a].addEventListener( 'click', ( ev ) => {
+                        if ( !accOpen ) {
+                          accOpen = true;
+                          // console.log(ev.target.nextElementSibling)
+                          ev.target.nextElementSibling.style.display = 'block';
+                        }
+                        else {
+                          accOpen = false;
+                          // console.log(ev.target.nextElementSibling)
+                          ev.target.nextElementSibling.style.display = 'none';
+                        }
+                      } )
                     }
+                  }
 
-                    if(text.textContent.includes('#Spieler#')) {
-                        changeRandomPlayer(text, newString);
-                    }
-                    if(text.textContent.includes('#Spieler#')) {
-                        changeRandomPlayer(text, newString);
-                    }
-                    if(text.textContent.includes('#Spieler#')) {
-                        changeRandomPlayer(text, newString);
-                    }
+                  if ( text.textContent.includes( '#Spieler#' ) ) {
+                    changeRandomPlayer( text, texte, newString );
+                  }
+                  if ( text.textContent.includes( '#Spieler#' ) ) {
+                    changeRandomPlayer( text, texte, newString );
+                  }
 
-                    let defaultPlayers = datasheetPlayers.split(', ');
-                    defaultPlayers.pop();
-                    sessionStorage.players = defaultPlayers;
+                  if(sessionStorage.endRuleTimerOn && sessionStorage.playersVirusContent.includes( '%' ) ) { //funktioniert nicht richtig
+                      sessionStorage.endRuleTimerOn = false;
+                      let endRuleTimer = (Math.floor(Math.random() * 15 + 5) + i);
+
+                      if(endRuleTimer > contentContainerArticle.length) {
+                        endRuleTimer = contentContainerArticle.length;
+                      }
+
+                      let endRule = contentContainerArticle[endRuleTimer].querySelector( '.end-rule' );
+                      endRule.classList.add('active-endrule');
+
+                      let endRules = contentContainerArticle[endRuleTimer].querySelector( '.end-rule--text' );
+                      let virusText = sessionStorage.playersVirusContent.replace( '%', '' );
+                      endRules.innerHTML += ' ' + virusText;
+
+                      let endRulesBtn = contentContainerArticle[endRuleTimer].querySelector( '.end-rule-btn' );
+                      endRulesBtn.addEventListener('click', () => {
+                        endRule.classList.remove('active-endrule');
+                        endRules.innerHTML = '';
+                      })
+                  }
+
+                  sessionStorage.playersVirus = '';
+                  sessionStorage.playersVirusContent = '';
+
+                  let defaultPlayers = datasheetPlayers.split(', ');
+                  defaultPlayers.pop();
+                  sessionStorage.players = defaultPlayers;
                 }
 
                 if(contentContainerArticle[i].children[2].textContent === 'perverse' || contentContainerArticle[i].children[2].textContent === 'perverse_alk'
@@ -999,6 +1182,10 @@ get_header(); ?>
                     container.style.background = 'rgba(245, 171, 53, 0.4)';
                 }
             }
+
+          // if(i == (contentContainerArticle.length -1)  ) {
+          //   goBackToStart();
+          // }
         }
         if( document.getElementById('datasheet__players') !== null) {
             let players = datasheetPlayers.split(', ');
@@ -1024,7 +1211,7 @@ get_header(); ?>
           replacement = 'Aktivität: ' + el + ', Spieler: ' + randomPlayer;
         }
       })
-      console.log(currentActivityNumber)
+      // console.log(currentActivityNumber)
       return replacement;
     }
 
@@ -1062,22 +1249,22 @@ get_header(); ?>
         }
     }
 
-    function setArticleIconEvents(articleIcons, showRules, setupContainerRules, closeRulesInGame, datasheetPunishments, displayPunishmentContainer, displayPunishment) {
+    function setArticleIconEvents(articleIcons, showRules, setupContainerRules, closeRulesInGame, datasheetPunishments, displayPunishmentContainer, displayPunishment, showInfos, displayInfoContainer, closeInfosInGame) {
+      // console.log(closeInfosInGame);
       for(let i = 0; i < articleIcons.length; i++) {
         articleIcons[i].addEventListener('click', (ev) => {
           if(ev.target.value == 'punishment-btn') {
-            showPunishments(datasheetPunishments, displayPunishmentContainer, displayPunishment, setupContainerRules);
+            showPunishments(datasheetPunishments, displayPunishmentContainer, displayPunishment, setupContainerRules, displayInfoContainer);
           } else if (ev.target.value == 'game-descriptions-btn' ||
               ev.target.parentElement.value == 'game-descriptions-btn' ||
               ev.target.parentElement.parentElement.value == 'game-descriptions-btn' ) {
-            showGameDescriptions();
+            showGameDescriptions(setupContainerRules, showRules, displayPunishmentContainer, showInfos, displayInfoContainer, closeInfosInGame);
           } else if (ev.target.value == 'rule-btn' ||
               ev.target.parentElement.value == 'rule-btn' ||
               ev.target.parentElement.parentElement.value == 'rule-btn'  ||
               ev.target.parentElement.parentElement.parentElement.value == 'rule-btn' ||
               ev.target.parentElement.parentElement.parentElement.parentElement.value == 'rule-btn' ) {
-            displayRules(showRules, setupContainerRules, closeRulesInGame, displayPunishmentContainer);
-
+            displayRules(showRules, setupContainerRules, displayPunishmentContainer, closeRulesInGame, showInfos, displayInfoContainer);
           } else if (ev.target.value == 're-new-btn' ||
               ev.target.parentElement.value == 're-new-btn' ||
               ev.target.parentElement.parentElement.value == 're-new-btn' ) {
@@ -1087,7 +1274,7 @@ get_header(); ?>
       }
     }
 
-    function showPunishments(datasheetPunishments, displayPunishmentContainer, displayPunishment, setupContainerRules) {
+    function showPunishments(datasheetPunishments, displayPunishmentContainer, displayPunishment, setupContainerRules, displayInfoContainer) {
       let closePunishmentBtn = document.getElementById('close-punishment');
       let datasheetPunishmentsArray = datasheetPunishments.split('|');
       let randomPunishmentNumber = Math.floor(Math.random() * (datasheetPunishmentsArray.length+1));
@@ -1098,25 +1285,33 @@ get_header(); ?>
       }
       displayPunishmentContainer.classList.add('show-punishment');
       setupContainerRules.classList.remove('show-rules');
+      displayInfoContainer.classList.remove('show-more-infos');
       closePunishmentBtn.addEventListener('click', () => {
         displayPunishmentContainer.classList.remove('show-punishment');
       })
     }
 
-    function displayRules(showRules, setupContainerRules, closeRulesInGame, displayPunishmentContainer) {
+    function displayRules(showRules, setupContainerRules, displayPunishmentContainer, closeRulesInGame, showInfos, displayInfoContainer) {
       if(!showRules) {
         showRules = true;
-        displayPunishmentContainer.classList.remove('show-punishment');
+        showInfos = false;
+        // console.log(displayPunishmentContainer)
+        displayInfoContainer.classList.remove('show-more-infos');
+        if(displayPunishmentContainer !== null) {
+          displayPunishmentContainer.classList.remove('show-punishment');
+        }
         setupContainerRules.classList.add('show-rules');
         closeRulesInGame.style.display = 'block';
 
         closeRulesInGame.addEventListener('click', () => {
           showRules = false;
+          showInfos = false;
           setupContainerRules.classList.remove('show-rules');
           closeRulesInGame.style.display = 'none';
         })
       } else {
         showRules = false;
+        showInfos = false;
         setupContainerRules.classList.remove('show-rules');
         closeRulesInGame.style.display = 'none';
       }
@@ -1129,8 +1324,28 @@ get_header(); ?>
       document.getElementById('reset-btn').dispatchEvent(ev);
     }
 
-    function showGameDescriptions() {
-      console.log('showGameDescriptions');
+    function showGameDescriptions(setupContainerRules, showRules, displayPunishmentContainer, showInfos, displayInfoContainer, closeInfosInGame) {
+      // console.log(closeInfosInGame);
+      if(!showInfos) {
+        showInfos = true;
+        showRules = false;
+        if(displayPunishmentContainer !== null) {
+          displayPunishmentContainer.classList.remove('show-punishment');
+        }
+        setupContainerRules.classList.remove('show-rules');
+        displayInfoContainer.classList.add('show-more-infos');
+        closeInfosInGame.style.display = 'block';
+        closeInfosInGame.addEventListener('click', () => {
+          showInfos = false;
+          displayInfoContainer.classList.remove('show-more-infos');
+          closeInfosInGame.style.display = 'none';
+        })
+      } else {
+        showInfos = false;
+        showRules = false;
+        displayInfoContainer.classList.remove('show-more-infos');
+        closeInfosInGame.style.display = 'none';
+      }
     }
 
     function goBackToStart() {
@@ -1138,6 +1353,36 @@ get_header(); ?>
       ev.initMouseEvent('click', true, true, window,
         0, 0, 0, 0, 0, false, false, false, false, 0, null);
       document.getElementById('reset-btn').dispatchEvent(ev);
+    }
+
+
+    function slideDownAccordion(acc) {
+      for ( let i = 0; i < acc.length; i++ ) {
+        acc[i].onclick = function() {
+          // console.log('click');
+          let setClasses = !this.classList.contains( 'accordion__dropdown--active' );
+          setClass( acc, 'accordion__dropdown--active', 'remove' );
+
+          if ( setClasses ) {
+            this.classList.toggle( 'accordion__dropdown--active' );
+          }
+
+          for (let i = 0; i < acc.length; i++) {
+            if (acc[i].classList.contains('accordion__dropdown--active')) {
+              acc[i].style.maxHeight = acc[i].scrollHeight + 'px';
+            }
+            else {
+              acc[i].style.maxHeight = null;
+            }
+          }
+        }
+      }
+    }
+
+    function setClass(els, className, fnName) {
+      for (let i = 0; i < els.length; i++) {
+        els[i].classList[fnName](className);
+      }
     }
 
 </script>

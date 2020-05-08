@@ -1801,6 +1801,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="www.monster-fish.at">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
   </component>
 </project>
